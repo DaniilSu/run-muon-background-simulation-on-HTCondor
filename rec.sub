@@ -1,0 +1,11 @@
+executable              = rec.sh
+request_memory          = 8 GB
+#request_disk            = 20 GB
+arguments               = $(directory) $(ProcId) $(N)
+output                  = output/rec.$(ClusterId).$(ProcId).out
+error                   = error/rec.$(ClusterId).$(ProcId).err
+log                     = log/rec.$(ClusterId).log
+requirements = (OpSysAndVer =?= "CentOS7")
+transfer_output_files = ""
++JobFlavour = "workday"
+queue $(N)

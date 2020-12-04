@@ -1,0 +1,12 @@
+executable = sim.sh
+request_memory = 16 GB
+#request_disk = 20 GB
+arguments = $(directory) $(ProcId) $(N) $(filename)
+output = output/sim.$(ClusterId).$(ProcId).out
+error = error/sim.$(ClusterId).$(ProcId).err
+log = log/sim.$(ClusterId).log
+requirements = (OpSysAndVer =?= "CentOS7")
+transfer_input_files = number_of_evts.C
+transfer_output_files = ""
++JobFlavour = "testmatch"
+queue $(N)
