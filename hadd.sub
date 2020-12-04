@@ -1,0 +1,9 @@
+executable              = hadd.sh 
+arguments               = "$(filename) /eos/experiment/ship/user/dasukhon/$(directory)/{1..$(N)}/$(filename)"
+output                  = output/hadd.$(ClusterId).$(ProcId).out
+error                   = error/hadd.$(ClusterId).$(ProcId).err
+log                     = log/hadd.$(ClusterId).log
+requirements = (OpSysAndVer =?= "CentOS7")
+transfer_output_files = ""
++JobFlavour = "workday"
+queue

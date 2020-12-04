@@ -1,0 +1,14 @@
+VARS ALL_NODES directory="MuonBackSim2018Alignment/1.7/MuonBackSim2018straw10file18000" N="100"
+VARS simulation filename="pythia8_Geant4_10.0_withCharmandBeauty18000_mu.root"
+VARS hadd filename="ship.conical.MuonBack-TGeant4.root"
+VARS haddrec filename="ship.conical.MuonBack-TGeant4"
+Job simulation sim.sub
+Job hadd hadd.sub
+Job rec rec.sub
+Job haddrec hadd_rec.sub
+DOT dag18000.dot UPDATE
+
+Parent simulation Child hadd rec
+Parent rec Child haddrec
+# TODO delete individual files and dirs after successful hadd
+# TODO add flux_map and digitisation
